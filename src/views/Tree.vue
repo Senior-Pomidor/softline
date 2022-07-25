@@ -79,7 +79,26 @@
 </script>
 
 <style lang="scss">
-	.folder {
-		color: red;
+	.tree {
+		--padding-left: 2rem;
+		--padding-top: 1rem;
+		
+		position: relative;
+		padding-top: var(--padding-top);
+		padding-left: var(--padding-left);
+		// border: 1px solid red;
+		
+		&::before {
+			position: absolute;
+			top: .5rem;
+			left: 1rem;
+			display: block;
+			height: var(--padding-top);
+			// width: 1px;
+			// background-color: $color-green;
+			border-left: 1px solid $color-green;
+			content: "";
+			box-sizing: border-box;
+		}
 	}
 </style>

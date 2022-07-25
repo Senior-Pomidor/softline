@@ -1,12 +1,14 @@
 <template>
-	<div ref="branch" class="tree__branch branch" :class="'tree__branch--' + info.type + ' ' + info.id">
-		<p class="tree__branch-name" @click.stop="toggleOpenFolder()">
+	<div ref="branch" class="branch closed" :class="'branch--' + info.type + ' ' + info.id">
+		<p class="branch__name" @click.stop="toggleOpenFolder()">
 			{{ level }} {{ info.type }} {{ info.name }}
 		</p>
 		
 		
 		<template v-if="info.type === 'folder' && info.children.length > 0">
-			<branch v-for="child in info.children" :info="child" :level="level + 1" :key="child.id" />
+			<div class="branch__subtree" v-if="isSubtreeOpened">
+				<branch v-for="child in info.children" :info="child" :level="level + 1" :key="child.id" />
+			</div>
 		</template>
 	</div>
 </template>
@@ -34,12 +36,13 @@
 		},
 		data() {
 			return {
-				isOpened: true
+				isSubtreeOpened: false
 			}
 		},
 		methods: {
 			toggleOpenFolder() {
 				this.$refs.branch.classList.toggle('closed')
+				this.isSubtreeOpened = !this.isSubtreeOpened
 			}
 		}
 	}
@@ -47,12 +50,63 @@
 
 <style lang="scss">
 	.tree {
-		&__branch {
+		--padding: 1rem;
+		--line-width: 1px;
+		$line-color: $color-green;
+		
+		.branch {
+			position: relative;
 			padding-left: 1.5rem;
 			
 			background-position: 0 0;
 			background-size: 1rem;
 			background-repeat: no-repeat;
+			
+			cursor: pointer;
+			
+			&::after {
+				position: absolute;
+				top: .5rem;
+				right: 100%;
+				display: block;
+				width: 1rem;
+				height: calc(100% + .5rem);
+				// background-color: $color-green;
+				border-left: 1px solid $color-green;
+				border-top: 1px solid $color-green;
+				content: "";
+				box-sizing: border-box;
+			}
+			
+			&:last-child {
+				&::after {
+					// width: 1rem;
+					border-left: none;
+					box-sizing: border-box;
+				}
+			}
+			
+			&__subtree {
+				position: relative;
+				padding-top: .5rem;
+				
+				&::after {
+					position: absolute;
+					top: 0;
+					right: 100%;
+					display: block;
+					width: 1rem;
+					height: 1rem;
+					// background-color: $color-green;
+					border-left: 1px solid $color-green;
+					content: "";
+					box-sizing: border-box;
+				}
+			}
+			
+			+ .branch {
+				margin-top: .5rem;
+			}
 			
 			&--file {
 				background-image: url('/assets/img/file.png');
@@ -63,16 +117,6 @@
 				
 				&.closed {
 					background-image: url('/assets/img/folder-closed.png');
-				}
-			}
-			
-			&.closed {
-				.tree__branch {
-					display: none;
-					
-					// &--folder {
-					// 	background-image: url('/assets/img/folder-closed.png');
-					// }
 				}
 			}
 		}
