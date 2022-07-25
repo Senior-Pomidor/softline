@@ -1,0 +1,29 @@
+@import 'colors.scss';
+
+$breakpoint-xs: 510px;
+$breakpoint-sm: 798px;
+$breakpoint-md: 1054px;
+$breakpoint-lg: 1270px;
+
+$container-padding: 1rem;
+
+$color-accent: $color-green;
+$body-color: $color-light-black;
+
+$link-color: $body-color;
+$link-color--hover: $color-accent;
+$link-color--active: $color-accent;
+
+
+
+$btn-color: $link-color;
+$btn-color--hover: $link-color--hover;
+$btn-color--active: $link-color--active;
+
+$btn-accent-color: $color-accent;
+$btn-accent-border-color: $color-accent;
+
+$btn-accent-color--active: $color-green-lighter;
+$btn-accent-border-color--active: $color-green-lighter;
+
+$transition-duration-base: .2s;
