@@ -165,15 +165,15 @@
 			}
 			
 			&--file {
-				--icon-url: url('/img/icons/file.png');
+				--icon-url: url('img/icons/file.png');
 			}
 			
 			&--folder {
-				--icon-url: url('/img/icons/folder-closed.png');
+				--icon-url: url('img/icons/folder-closed.png');
 			}
 				
 			&.opened {
-				--icon-url: url('/img/icons/folder-opened.png');
+				--icon-url: url('img/icons/folder-opened.png');
 			}
 		}
 	}
