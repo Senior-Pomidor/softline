@@ -1,5 +1,5 @@
 <template>
-	<div ref="branch" class="branch closed" :class="'branch--' + info.type + ' ' + info.id">
+	<div ref="branch" class="branch" :class="'branch--' + info.type">
 		<p class="branch__name" @click.stop="toggleOpenFolder()">
 			{{ level }} {{ info.type }} {{ info.name }}
 		</p>
@@ -41,7 +41,7 @@
 		},
 		methods: {
 			toggleOpenFolder() {
-				this.$refs.branch.classList.toggle('closed')
+				this.$refs.branch.classList.toggle('opened')
 				this.isSubtreeOpened = !this.isSubtreeOpened
 			}
 		}
@@ -71,7 +71,6 @@
 				display: block;
 				width: 1rem;
 				height: calc(100% + .5rem);
-				// background-color: $color-green;
 				border-left: 1px solid $color-green;
 				border-top: 1px solid $color-green;
 				content: "";
@@ -80,7 +79,6 @@
 			
 			&:last-child {
 				&::after {
-					// width: 1rem;
 					border-left: none;
 					box-sizing: border-box;
 				}
@@ -97,7 +95,6 @@
 					display: block;
 					width: 1rem;
 					height: 1rem;
-					// background-color: $color-green;
 					border-left: 1px solid $color-green;
 					content: "";
 					box-sizing: border-box;
@@ -109,14 +106,14 @@
 			}
 			
 			&--file {
-				background-image: url('/assets/img/file.png');
+				background-image: url('/img/icons/file.png');
 			}
 			
 			&--folder {
-				background-image: url('/assets/img/folder-opened.png');
+				background-image: url('/img/icons/folder-closed.png');
 				
-				&.closed {
-					background-image: url('/assets/img/folder-closed.png');
+				&.opened {
+					background-image: url('/img/icons/folder-opened.png');
 				}
 			}
 		}
