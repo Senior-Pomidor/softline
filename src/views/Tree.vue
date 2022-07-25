@@ -4,13 +4,11 @@
 			Бинарная структура
 		</h2>
 		
-		<ul class="tree">
-			<Branch v-for="branch in tree" :key="branch.id"
-					:class="{folder: branch.type === 'folder', file: branch.type === 'file'}"
-					>
+		<div class="tree">
+			<Branch v-for="branch in tree" :key="branch.id" :data="branch">
 					<!-- {{ branch.type }} -->
 			</Branch>
-		</ul>
+		</div>
 	</section>
 </template>
 
