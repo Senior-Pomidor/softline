@@ -5,9 +5,7 @@
 		</h2>
 		
 		<div class="tree">
-			<Branch v-for="branch in tree" :key="branch.id" :data="branch">
-					<!-- {{ branch.type }} -->
-			</Branch>
+			<Branch v-for="branch in tree" :key="branch.id" :info="branch" />
 		</div>
 	</section>
 </template>
@@ -25,45 +23,54 @@
 					{
 						id: 1,
 						type: 'folder',
+						name: 'Folder 1',
 						children: [
 							{
-								id: 2,
-								type: 'file'
+								id: 10,
+								type: 'file',
+								name: 'Item 1.1',
+							}
+						]
+					},
+					{
+						id: 2,
+						type: 'folder',
+						name: 'Folder 2',
+						children: [
+							{
+								id: 20,
+								type: 'folder',
+								name: 'Subfolder 2.1',
+								children: [
+									{
+										id: 201,
+										type: 'file',
+										name: 'File 2.1.1',
+									}, 
+									{
+										id: 202,
+										type: 'file',
+										name: 'File 2.1.2',
+									}
+								]
+							}, 
+							{
+									id: 21,
+									type: 'file',
+									name: 'File 2.2',
 							}
 						]
 					},
 					{
 						id: 3,
 						type: 'folder',
-						children: [
-							{
-								id: 4,
-								type: 'folder',
-								children: [
-									{
-										id: 4,
-										type: 'file'
-									}, 
-									{
-										id: 4,
-										type: 'file'
-									}
-								]
-							}, 
-							{
-									id: 5,
-									type: 'file'
-							}
-						]
-					},
-					{
-						id: 6,
-						type: 'folder',
+						name: 'Folder 3 (closed at start)',
 						children: []
 					},
 					{
-						id: 7,
-						type: 'file'
+						id: 4,
+						type: 'file',
+						name: 'File 4',
 					}
 				]
 			}

@@ -1,11 +1,12 @@
 <template>
-	<div class="tree__branch branch" :style="{ 'padding-left': `${level * 10}px` }">
-		<div class="branch__type">
-			{{data.type}}
-		</div>
+	<div ref="branch" class="tree__branch branch" :class="'tree__branch--' + info.type + ' ' + info.id">
+		<p class="tree__branch-name" @click.stop="toggleOpenFolder()">
+			{{ level }} {{ info.type }} {{ info.name }}
+		</p>
 		
-		<template v-if="data.type === 'folder' && data.children.length > 0">
-			<branch v-for="child in data.children" :data="child" :level="level + 1" :key="child.id"/>
+		
+		<template v-if="info.type === 'folder' && info.children.length > 0">
+			<branch v-for="child in info.children" :info="child" :level="level + 1" :key="child.id" />
 		</template>
 	</div>
 </template>
@@ -14,7 +15,7 @@
 	export default {
 		name: 'branch',
 		props: {
-			data: {
+			info: {
 				type: Object,
 				default() {
 					return {
@@ -30,10 +31,50 @@
 					return 0;
 				},
 			}
+		},
+		data() {
+			return {
+				isOpened: true
+			}
+		},
+		methods: {
+			toggleOpenFolder() {
+				this.$refs.branch.classList.toggle('closed')
+			}
 		}
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+	.tree {
+		&__branch {
+			padding-left: 1.5rem;
+			
+			background-position: 0 0;
+			background-size: 1rem;
+			background-repeat: no-repeat;
+			
+			&--file {
+				background-image: url('/assets/img/file.png');
+			}
+			
+			&--folder {
+				background-image: url('/assets/img/folder-opened.png');
+				
+				&.closed {
+					background-image: url('/assets/img/folder-closed.png');
+				}
+			}
+			
+			&.closed {
+				.tree__branch {
+					display: none;
+					
+					// &--folder {
+					// 	background-image: url('/assets/img/folder-closed.png');
+					// }
+				}
+			}
+		}
+	}
 </style>
