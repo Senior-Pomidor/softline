@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c84a9829853499625950",
+    "revision": "d6f7bf46748d0f8ab1a4",
     "url": "/softline/css/app.f40f2636.css"
   },
   {
-    "revision": "07894ef34e8462b77b24",
-    "url": "/softline/css/chunk-0ca3c3fd.6d4b8b68.css"
+    "revision": "7633a39642954d41b094",
+    "url": "/softline/css/chunk-9b061490.c6b67687.css"
   },
   {
-    "revision": "afa1f43b7d889c36257846194710e9c1",
+    "revision": "22bb8d27e0f8582998e53bceb2b477bb",
     "url": "/softline/index.html"
   },
   {
-    "revision": "c84a9829853499625950",
-    "url": "/softline/js/app.60bd6eb5.js"
+    "revision": "d6f7bf46748d0f8ab1a4",
+    "url": "/softline/js/app.2413f46c.js"
   },
   {
-    "revision": "07894ef34e8462b77b24",
-    "url": "/softline/js/chunk-0ca3c3fd.70038523.js"
+    "revision": "7633a39642954d41b094",
+    "url": "/softline/js/chunk-9b061490.11552cdb.js"
   },
   {
     "revision": "0a987fc6f4463400acb2",
