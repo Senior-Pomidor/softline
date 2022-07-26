@@ -114,7 +114,7 @@
 				background-position: 0 0;
 				background-size: 1rem;
 				background-repeat: no-repeat;
-				background-image: var(--icon-type-url);
+				background-image: url('/img/icons/file.png');
 				padding-left: 1.2rem;
 			}
 			
@@ -169,14 +169,20 @@
 			}
 			
 			&--file {
-				background-image: url('/img/icons/file.png');
+				.branch__name {
+					background-image: url('/img/icons/file.png');
+				}
 			}
 			
 			&--folder {
-				background-image: url('/img/icons/folder-closed.png');
+				.branch__name {
+					background-image: url('/img/icons/folder-closed.png');
+				}
 				
 				&.opened {
-					background-image: url('/img/icons/folder-opened.png');
+					.branch__name {
+						background-image: url('/img/icons/folder-opened.png');
+					}
 				}
 			}
 		}
