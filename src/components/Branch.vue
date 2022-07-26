@@ -142,7 +142,7 @@
 				padding: 0;
 				margin: 0;
 				
-				background-image: var(--icon-btn-url);
+				background-image: url('/softline/img/icons/plus.png');
 				background-size: 70%;
 				background-repeat: no-repeat;
 				background-position: center;
@@ -152,7 +152,7 @@
 				z-index: 5;
 				
 				&.opened {
-					--icon-btn-url: var(--icon-minus-url);
+					background-image: url('/softline/img/icons/minus.png');
 				}
 			}
 			
@@ -178,15 +178,15 @@
 			}
 			
 			&--file {
-				--icon-type-url: url('/img/icons/file.png');
+				background-image: url('/softline/img/icons/file.png');
 			}
 			
 			&--folder {
-				--icon-type-url: url('/img/icons/folder-closed.png');
-			}
+				background-image: url('/softline/img/icons/folder-closed.png');
 				
-			&.opened {
-				--icon-type-url: url('../img/icons/folder-opened.png');
+				&.opened {
+					background-image: url('/softline/img/icons/folder-opened.png');
+				}
 			}
 		}
 	}
