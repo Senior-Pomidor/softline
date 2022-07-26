@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/softline/precache-manifest.a79ea213f8be7f8551896c41c412bfb2.js"
+  "/softline/precache-manifest.c55863b22a34e928a7f8d83a27e25f15.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "softline"});
