@@ -61,15 +61,6 @@
 		--line-top: .6rem;
 		--btn-width: 1rem;
 		
-		--icon-file-url: url('/img/icons/file.png');
-		--icon-folder-url: url('/img/icons/folder-opened.png');
-		--icon-plus-url: url('/img/icons/plus.png');
-		--icon-minus-url: url('/img/icons/minus.png');
-		
-		
-			--icon-btn-url: var(--icon-plus-url);
-			--icon-type-url: var(--icon-file-url);
-		
 		&::before {
 			position: absolute;
 			top: 0;
