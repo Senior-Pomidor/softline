@@ -54,14 +54,15 @@
 
 <style lang="scss">
 	.tree {
-		--padding: 1rem;
+		// --padding: 1rem;
 		--line-width: 2px;
 		--background-image: '';
 		$line-color: $color-green;
 		
-		--branch-padding-left: 1.6rem;
+		--branch-padding-left: 2rem;
 		--icon-url: url('/img/icons/file.png');
 		--line-top: .6rem;
+		--btn-width: 1rem;
 		
 		$icon-file-url: '/img/icons/file.png';
 		$icon-folder-opened-url: '/img/icons/folder-opened.png';
@@ -78,19 +79,19 @@
 			background-repeat: no-repeat;
 			
 			
-				::before,
-				::after,
-				&::after {
-					display: block;
-					content: "";
-				}
+			::before,
+			::after,
+			&::after {
+				display: block;
+				content: "";
+			}
 			
 			&::after {
 				position: absolute;
 				top: .5rem;
-				right: 100%;
+				left: calc(var(--btn-width) / 2 - var(--line-width) / 2);
 				display: block;
-				width: 1rem;
+				width: calc(var(--branch-padding-left) / 1.5);
 				height: calc(100% + .5rem);
 				border-left: 2px solid $color-green;
 				border-top: 2px solid $color-green;
@@ -118,7 +119,7 @@
 			&__btn {
 				position: absolute;
 				top: .5rem;
-				left: -.5rem;
+				left: 0;
 				
 				width: 1rem;
 				height: 1rem;
@@ -145,7 +146,7 @@
 			
 			&__subtree {
 				position: relative;
-				padding-top: .5rem;
+				margin-top: .5rem;
 				
 				&::after {
 					position: absolute;
