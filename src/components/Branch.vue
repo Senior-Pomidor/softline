@@ -54,22 +54,33 @@
 
 <style lang="scss">
 	.tree {
-		// --padding: 1rem;
 		--line-width: 2px;
-		--background-image: '';
 		$line-color: $color-green;
 		
 		--branch-padding-left: 2rem;
-		--icon-url: url('/img/icons/file.png');
 		--line-top: .6rem;
 		--btn-width: 1rem;
 		
-		$icon-file-url: '/img/icons/file.png';
-		$icon-folder-opened-url: '/img/icons/folder-opened.png';
-		$icon-plus-url: '/img/icons/plus.png';
-		$icon-minus-url: '/img/icons/minus.png';
+		--icon-file-url: url('/img/icons/file.png');
+		--icon-folder-url: url('/img/icons/folder-opened.png');
+		--icon-plus-url: url('/img/icons/plus.png');
+		--icon-minus-url: url('/img/icons/minus.png');
 		
-
+		
+			--icon-btn-url: var(--icon-plus-url);
+			--icon-type-url: var(--icon-file-url);
+		
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 1.5rem;
+			
+			display: block;
+			height: 1.5rem;
+			border-left: var(--line-width) solid $line-color;
+			content: "";
+		}
+		
 		.branch {
 			position: relative;
 			padding-left: var(--branch-padding-left);
@@ -88,7 +99,7 @@
 			
 			&::after {
 				position: absolute;
-				top: .5rem;
+				top: calc(.5rem - var(--line-width) / 2);
 				left: calc(var(--btn-width) / 2 - var(--line-width) / 2);
 				display: block;
 				width: calc(var(--branch-padding-left) / 1.5);
@@ -98,6 +109,7 @@
 				content: "";
 				box-sizing: border-box;
 			}
+			
 			
 			&:last-child {
 				&::after {
@@ -111,7 +123,7 @@
 				background-position: 0 0;
 				background-size: 1rem;
 				background-repeat: no-repeat;
-				background-image: var(--icon-url);
+				background-image: var(--icon-type-url);
 				padding-left: 1.2rem;
 			}
 			
@@ -130,7 +142,7 @@
 				padding: 0;
 				margin: 0;
 				
-				background-image: url($icon-plus-url);
+				background-image: var(--icon-btn-url);
 				background-size: 70%;
 				background-repeat: no-repeat;
 				background-position: center;
@@ -140,21 +152,21 @@
 				z-index: 5;
 				
 				&.opened {
-					background-image: url($icon-minus-url);
+					--icon-btn-url: var(--icon-minus-url);
 				}
 			}
 			
 			&__subtree {
 				position: relative;
-				margin-top: .5rem;
+				margin-top: 1rem;
 				
 				&::after {
 					position: absolute;
-					top: 0;
-					right: 100%;
+					top: -1rem;
+					left: calc(.5rem - var(--line-width) / 2);
 					display: block;
 					width: 1rem;
-					height: 1rem;
+					height: 1.5rem;
 					border-left: 2px solid $color-green;
 					content: "";
 					box-sizing: border-box;
@@ -166,15 +178,15 @@
 			}
 			
 			&--file {
-				--icon-url: url('img/icons/file.png');
+				--icon-type-url: url('/img/icons/file.png');
 			}
 			
 			&--folder {
-				--icon-url: url('img/icons/folder-closed.png');
+				--icon-type-url: url('/img/icons/folder-closed.png');
 			}
 				
 			&.opened {
-				--icon-url: url('img/icons/folder-opened.png');
+				--icon-type-url: url('../img/icons/folder-opened.png');
 			}
 		}
 	}
