@@ -114,7 +114,7 @@
 				background-position: 0 0;
 				background-size: 1rem;
 				background-repeat: no-repeat;
-				background-image: url('/img/icons/file.png');
+				background-image: url('/softline/img/icons/file.png');
 				padding-left: 1.2rem;
 			}
 			
@@ -133,7 +133,7 @@
 				padding: 0;
 				margin: 0;
 				
-				background-image: url('/img/icons/plus.png');
+				background-image: url('/softline/img/icons/plus.png');
 				background-size: 70%;
 				background-repeat: no-repeat;
 				background-position: center;
@@ -143,7 +143,7 @@
 				z-index: 5;
 				
 				&.opened {
-					background-image: url('/img/icons/minus.png');
+					background-image: url('/softline/img/icons/minus.png');
 				}
 			}
 			
@@ -170,18 +170,18 @@
 			
 			&--file {
 				.branch__name {
-					background-image: url('/img/icons/file.png');
+					background-image: url('/softline/img/icons/file.png');
 				}
 			}
 			
 			&--folder {
 				.branch__name {
-					background-image: url('/img/icons/folder-closed.png');
+					background-image: url('/softline/img/icons/folder-closed.png');
 				}
 				
 				&.opened {
 					.branch__name {
-						background-image: url('/img/icons/folder-opened.png');
+						background-image: url('/softline/img/icons/folder-opened.png');
 					}
 				}
 			}
