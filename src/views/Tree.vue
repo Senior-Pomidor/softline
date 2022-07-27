@@ -1,7 +1,7 @@
 <template>
 	<section class="section-tree">
 		<h2>
-			Бинарная структура
+			Структура вложенных каталогов и файлов
 		</h2>
 
 		<ul class="tree">
